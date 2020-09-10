@@ -8,9 +8,8 @@
 
 import UIKit
 
-class RecommendViewModel {
+class RecommendViewModel : BaseViewModel{
 
-    lazy var anchorGroups : [AnchorGroup] = [AnchorGroup]()
     lazy var cycleModels : [CycleModel] = [CycleModel]()
     private lazy var bigDataGroup : AnchorGroup = AnchorGroup()
     private lazy var prettyDataGroup : AnchorGroup = AnchorGroup()
@@ -30,10 +29,10 @@ extension RecommendViewModel{
         NetworkTools.requestData(type: .GET, URLStirng: "http://capi.douyucdn.cn/api/v1/getbigDataRoom", paramer: ["time" : NSDate.getCurrentTime()]) { (result) in
             
             // 1.将result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else { return }
+            guard let resultDict = result as? [String : Any] else { return }
             
             // 2.根据data该key,获取数组
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else { return }
             
             // 3.遍历字典,并且转成模型对象
             // 3.1.设置组的属性
@@ -72,27 +71,9 @@ extension RecommendViewModel{
     
         // 3.请求2-12部分游戏数据
         dGroup.enter()
-        NetworkTools.requestData(type: .GET, URLStirng: "http://capi.douyucdn.cn/api/v1/getHotCate", paramer: parameters) { (result) in
-            // 1.将result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else { return }
-            // 2.根据data该key,获取数组
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return}
-            // 3.遍历字典,并且转成模型对象
-            //print(dataArray)
-            for dict in dataArray{
-                let group = AnchorGroup(dict: dict)
-//                print(group.tag_name)
-                self.anchorGroups.append(group)
-            }
-//            for group in self.anchorGroups{
-//                for anchor in group.anchors {
-//                    print(anchor.nickname)
-//                }
-//                print("--------------")
-//            }
+        loadAnchorData(URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) {
             dGroup.leave()
             print("请求到2-12部分游戏数据")
-            
         }
     
         //所有的数据都请求到,之后进行排序

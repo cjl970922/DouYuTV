@@ -17,7 +17,7 @@ enum MethodType {
 
 class NetworkTools {
 
-    class func requestData(type: MethodType, URLStirng: String, paramer: [String : String]? = nil ,finishCallBack:@escaping (_ result: AnyObject)->()){
+    class func requestData(type: MethodType, URLStirng: String, paramer: [String : String]? = nil ,finishCallBack:@escaping (_ result: Any)->()){
         //1.获取类型
       let method = type == .GET ? HTTPMethod.get : HTTPMethod.post
         //发送网络请求
@@ -29,7 +29,7 @@ class NetworkTools {
                 return
             }
             //4.将结果回调回去
-            finishCallBack(result as AnyObject)
+            finishCallBack(result)
         }
     }
     // Alamofire.request(URLString, method: method, parameters: parameters).responseJSON { (response) in

@@ -25,7 +25,7 @@ class CycleModel: NSObject {
     @objc var anchor : AnchorModel?
     
     
-    init(dict : [String : NSObject]) {
+    init(dict : [String : Any]) {
         super.init()
         
         setValuesForKeys(dict)

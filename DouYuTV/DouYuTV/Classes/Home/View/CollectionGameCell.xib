@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionGameCell" customModule="DouYuTV" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionGameCell" customModule="DouYuTV" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -17,18 +17,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="英雄联盟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7Y-nn-VIW">
-                        <rect key="frame" x="15.5" y="65" width="49.5" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="izd-uK-UeC"/>
-                        </constraints>
+                        <rect key="frame" x="15.5" y="64.5" width="49.5" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="phM-o6-3Dl">
-                        <rect key="frame" x="17.5" y="15" width="45" height="45"/>
+                        <rect key="frame" x="17.5" y="14.5" width="45" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="phM-o6-3Dl" secondAttribute="height" multiplier="1:1" id="Zzx-GP-Cbk"/>
+                            <constraint firstAttribute="height" constant="45" id="Hk0-Yw-9Ol"/>
+                            <constraint firstAttribute="width" constant="45" id="gpB-ar-qly"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -37,14 +35,24 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h4P-vC-BJh">
+                        <rect key="frame" x="0.0" y="90" width="80" height="1"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="8YZ-CM-RFF"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="E7Y-nn-VIW" secondAttribute="bottom" constant="10" id="1rf-Ol-hg3"/>
-                <constraint firstItem="E7Y-nn-VIW" firstAttribute="top" secondItem="phM-o6-3Dl" secondAttribute="bottom" constant="5" id="JxS-Ma-Paj"/>
-                <constraint firstItem="phM-o6-3Dl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="LMG-4r-7fr"/>
-                <constraint firstItem="phM-o6-3Dl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="TDj-uW-R4f"/>
-                <constraint firstItem="E7Y-nn-VIW" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="we2-4M-JRG"/>
+                <constraint firstItem="phM-o6-3Dl" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-8" id="4yp-8E-mU3"/>
+                <constraint firstItem="phM-o6-3Dl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Gd0-Eq-6Th"/>
+                <constraint firstAttribute="bottom" secondItem="h4P-vC-BJh" secondAttribute="bottom" constant="-1" id="HHz-i5-i5u"/>
+                <constraint firstItem="E7Y-nn-VIW" firstAttribute="top" secondItem="phM-o6-3Dl" secondAttribute="bottom" constant="5" id="IiH-O7-B9h"/>
+                <constraint firstAttribute="trailing" secondItem="h4P-vC-BJh" secondAttribute="trailing" id="TCI-9L-xMz"/>
+                <constraint firstItem="phM-o6-3Dl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Wev-nB-oYf"/>
+                <constraint firstItem="E7Y-nn-VIW" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="flQ-ye-uXw"/>
+                <constraint firstItem="h4P-vC-BJh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ua3-gO-oMY"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>

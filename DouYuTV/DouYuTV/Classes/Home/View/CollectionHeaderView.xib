@@ -23,7 +23,6 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_header_phone" translatesAutoresizingMaskIntoConstraints="NO" id="u5z-Ny-JbP">
                     <rect key="frame" x="10" y="21" width="18" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="18" id="TCM-k4-lCa"/>
                         <constraint firstAttribute="height" constant="18" id="ujD-zq-hXq"/>
                     </constraints>
                 </imageView>
@@ -59,6 +58,7 @@
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <connections>
                 <outlet property="iconImageView" destination="u5z-Ny-JbP" id="1ot-wT-kFz"/>
+                <outlet property="moreBtn" destination="FfW-PL-6aR" id="hsf-2O-UOQ"/>
                 <outlet property="titleLabel" destination="gwL-nD-abj" id="Nl7-kU-pr3"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="112.5"/>

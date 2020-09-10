@@ -20,6 +20,7 @@ class CollectionwCycleCell: UICollectionViewCell {
             titleLabel.text = cycleModel?.title
             let iconURL = URL(string: cycleModel?.pic_url ?? "")
             iconImageView.kf.setImage(with: iconURL, placeholder: UIImage(named: "Img_default"))
+
         }
     }
     

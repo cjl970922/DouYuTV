@@ -9,6 +9,8 @@
 import Foundation
 
 extension NSDate{
+    //class改 static
+    
     class func getCurrentTime() -> String {
         
         let nowDate = NSDate()
