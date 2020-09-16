@@ -14,11 +14,13 @@ private let kGameViewH : CGFloat = 90
 class RecommendViewController: BaseAnchorViewController {
     
     private lazy var recommendVM : RecommendViewModel = RecommendViewModel()
+    //第一行
     private lazy var cycleView : RecommendCycleView = {
         let cycleView = RecommendCycleView.recommendCycleView()
         cycleView.frame = CGRect(x: 0, y: -(kCycleViewH + kGameViewH), width: kScreenW, height: kCycleViewH)
         return cycleView
     }()
+    //第二行
     private lazy var gameView : RecommendGameView = {
         let gameView = RecommendGameView.recommendGameView()
         gameView.frame = CGRect(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH)
@@ -58,7 +60,9 @@ extension RecommendViewController{
             moreGroup.tag_name = "更多"
             groups.append(moreGroup)
             
-            self.gameView.groups = groups 
+            self.gameView.groups = groups
+            
+            self.loadDataFinished()
         }
         
         recommendVM.requsetCycleData {

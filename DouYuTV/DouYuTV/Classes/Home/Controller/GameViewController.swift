@@ -18,7 +18,7 @@ private let kGameViewH : CGFloat = 90
 private let kGameCellID = "kGameCellID"
 private let kHeaderViewID = "kHeaderViewID"
 
-class GameViewController: UIViewController {
+class GameViewController: BaseViewController {
 
     fileprivate lazy var gameVM : GameViewModel = GameViewModel()
     fileprivate lazy var topHeaderView : CollectionHeaderView = {
@@ -60,12 +60,18 @@ class GameViewController: UIViewController {
 
 }
 extension GameViewController {
-    fileprivate func setupUI() {
-        view.addSubview(collectionView)
+    override func setupUI() {
+        
+    
         collectionView.addSubview(topHeaderView)
         collectionView.addSubview(gameView)
         // 设置collectionView的内边距
         collectionView.contentInset = UIEdgeInsets(top: kHeaderViewH + kGameViewH, left: 0, bottom: 0, right: 0)
+        view.addSubview(collectionView)
+        
+        contentView = collectionView
+        
+        super.setupUI()
     }
 }
 
@@ -76,6 +82,8 @@ extension GameViewController {
             self.collectionView.reloadData()
             
             self.gameView.groups = Array(self.gameVM.games[0..<10])
+            
+            self.loadDataFinished()
 
         }
         

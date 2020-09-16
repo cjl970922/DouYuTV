@@ -20,7 +20,7 @@ private let kNormalCellID = "kNormalCellID"
  let kPerttyItemH : CGFloat = kNormalItemW * 4 / 3
 
 
-class BaseAnchorViewController: UIViewController {
+class BaseAnchorViewController: BaseViewController {
 
     var baseVM : BaseViewModel!
     
@@ -60,8 +60,15 @@ class BaseAnchorViewController: UIViewController {
 }
 
 extension BaseAnchorViewController {
-    @objc func setupUI() {
+     override func setupUI() {
+        
+        contentView = collectionView
         view.addSubview(collectionView)
+        super.setupUI()
+        
+        
+        
+
     }
 }
 
@@ -95,4 +102,26 @@ extension BaseAnchorViewController : UICollectionViewDataSource, UICollectionVie
         return headerView
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        let anchor = baseVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+        
+        anchor.isVertical == 0 ? pushNormalRoomVc() : presentShowRoomVc()
+        
+    }
+    
+    private func presentShowRoomVc(){
+        let showRoomVc = RoomShowViewController()
+        
+        present(showRoomVc, animated: true, completion: nil)
+        
+    }
+    
+    private func pushNormalRoomVc(){
+        let normalRoomVc = RoomNormalViewController()
+        
+        navigationController?.pushViewController(normalRoomVc, animated: true)
+        
+    }
 }
+
