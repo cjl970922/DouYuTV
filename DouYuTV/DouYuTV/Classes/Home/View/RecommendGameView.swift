@@ -51,9 +51,6 @@ extension RecommendGameView : UICollectionViewDataSource {
         
         cell.baseGame = groups![indexPath.item]
         
-        
-       // cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.orange : UIColor.blue
-        
         return cell
     }
 }
