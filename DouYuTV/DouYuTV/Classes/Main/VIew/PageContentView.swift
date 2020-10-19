@@ -21,7 +21,7 @@ class PageContentView: UIView {
     //MARK: - 定义属性
     private var childVcs : [UIViewController]
     //父识图为pageContentView的属性
-    //HomeeViewController     是它的父识图 中有pagecontentView
+    //HomeViewController     是它的父识图 中有pagecontentView
     //会导致循环引用
     private weak var parentViewcontroller : UIViewController?
     private var startOffsetX : CGFloat = 0
@@ -125,14 +125,17 @@ extension PageContentView : UICollectionViewDelegate{
         var targetIndex : Int = 0
         
         //判断左滑还是右滑
-        let currentOffsetX = scrollView.contentOffset.x
+        let currentOffsetX = scrollView.contentOffset.x//当前scrollview的左上角对于内容左上角的便宜
         let scrollViewW = scrollView.bounds.width
         
         if currentOffsetX > startOffsetX { //左滑
-            
+
             progress = currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW)
+            
             sourceIndex =  Int(currentOffsetX / scrollViewW)
+            
             targetIndex = sourceIndex + 1
+            
             if targetIndex >= childVcs.count {
                 targetIndex = childVcs.count - 1
             }
@@ -143,10 +146,13 @@ extension PageContentView : UICollectionViewDelegate{
                 targetIndex = sourceIndex
             }
             
-        } else {
+        } else { // 右滑
             progress = 1 - (currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW))
+            
             targetIndex = Int(currentOffsetX / scrollViewW)
+            
             sourceIndex = targetIndex + 1
+            
             if sourceIndex >= childVcs.count {
                 sourceIndex = childVcs.count - 1
             }
@@ -157,7 +163,6 @@ extension PageContentView : UICollectionViewDelegate{
         
     }
     
-    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         isForbidScrollDelegate = false
@@ -166,10 +171,6 @@ extension PageContentView : UICollectionViewDelegate{
     }
     
 }
-
-
-
-
 
 //MARK: - 对外暴露的方法
 extension PageContentView{

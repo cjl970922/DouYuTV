@@ -34,7 +34,7 @@ class BaseAnchorViewController: BaseViewController {
            layout.headerReferenceSize = CGSize(width: kScreenW, height: kHeaderViewH)
            layout.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: 0, right: kItemMargin)
            
-           
+        
            let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
            //随着父视图来调节大小
            collectionView.autoresizingMask = [.flexibleWidth,.flexibleHeight]

@@ -13,6 +13,8 @@ private let KTitleViewH : CGFloat = 40
 class HomeViewController: UIViewController {
     
     //有安全区域的就得➕24。之后再适配吧
+
+    
     //懒加载属性
     private lazy var pageTitleView : PageTitleView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH  , width: kScreenW, height: KTitleViewH)
@@ -44,28 +46,13 @@ class HomeViewController: UIViewController {
     }()
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
-        // Do any additional setup after loading the view.
-        
-    }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        setupUI()
+  
     }
-    */
-
 }
-
 
 //MARK: -设置UI界面
 extension HomeViewController{
@@ -114,18 +101,6 @@ extension HomeViewController{
         let historyItem = UIBarButtonItem(imageName: "image_my_history", highImageName: "image_my_history_click", size: size)
         let searchItem = UIBarButtonItem(imageName: "btn_search", highImageName: "btn_search_click", size: size)
         let qrcodeItem = UIBarButtonItem(imageName: "Image_scan", highImageName: "Image_scan_click", size: size)
-//        let searchBtn = UIButton()
-//        searchBtn.setImage(UIImage(named: "btn_search"), for: .normal)
-//        searchBtn.setImage(UIImage(named: "btn_search_click"), for: .highlighted)
-//        searchBtn.sizeToFit()
-//        let searchItem = UIBarButtonItem(customView: searchBtn)
-//
-//        let qrcodeBtn = UIButton()
-//        qrcodeBtn.setImage(UIImage(named: "Image_scan"), for: .normal)
-//        qrcodeBtn.setImage(UIImage(named: "Image_scan_click"), for: .highlighted)
-//        qrcodeBtn.sizeToFit()
-//        let qrcodeItem = UIBarButtonItem(customView: qrcodeBtn)
-        
         
         navigationItem.rightBarButtonItems = [historyItem,searchItem,qrcodeItem]
        }

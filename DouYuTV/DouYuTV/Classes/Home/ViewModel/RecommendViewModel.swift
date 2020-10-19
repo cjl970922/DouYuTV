@@ -86,16 +86,15 @@ extension RecommendViewModel{
         }
     }
     
-
+    // 请求无线轮播的数据
     func requsetCycleData(finishCallback : @escaping () -> ())  {
         NetworkTools.requestData(type: .GET, URLStirng: "http://www.douyutv.com/api/v1/slide/6") { (result) in
-            
+            // 1.获取整体字典数据
             guard let resultDict = result as? [String : NSObject] else { return }
-            
+            // 2.根据data的key获取数据
             guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
-            
+            // 3.字典转模型对象
             for dict in dataArray {
-                
                 self.cycleModels.append(CycleModel(dict: dict))
             }
             

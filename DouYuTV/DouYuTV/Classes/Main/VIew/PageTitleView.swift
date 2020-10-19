@@ -18,13 +18,6 @@ private let kSelectColor : (CGFloat,CGFloat,CGFloat) = (255,128,0)
 
 class PageTitleView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     //定义属性
     private var currentIndex : Int = 0
@@ -71,7 +64,7 @@ extension PageTitleView{
         //1.添加UIScrollView
         addSubview(scrollView)
         scrollView.frame = bounds
-       // scrollView.backgroundColor = UIColor.green
+
         //2.添加title对应的label
         setupTitleLabels()
         

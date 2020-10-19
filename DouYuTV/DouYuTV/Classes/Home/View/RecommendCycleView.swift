@@ -30,8 +30,6 @@ class RecommendCycleView: UIView {
         }
     }
     
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -75,11 +73,8 @@ extension RecommendCycleView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCycleCellID, for: indexPath) as! CollectionwCycleCell
         
-        
         cell.cycleModel = cycleModels![indexPath.item % cycleModels!.count] //没有值上面个方法返回0。这个方法直接返回
-
         
-       // cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.red : UIColor.blue
         return cell
 
     }
